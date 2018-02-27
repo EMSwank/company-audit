@@ -11,8 +11,8 @@ class Company
   end
 
   def load_employees(file_path)
-    data = CSV.read(file_path)
-    data_to_hash = data.map { |datum| datum << @employees }
+    data = CSV.read(file_path, headers: true)
+    data_to_hash = data.map { |datum| @employees << datum}
   end
 end
 
