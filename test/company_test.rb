@@ -13,6 +13,11 @@ class CompanyTest < Minitest::Test
 
     assert_equal [], company.employees
     assert_equal [], company.projects
-    assert_equal [], company.timesheets  
+    assert_equal [], company.timesheets
+  end
+
+  def test_it_reads_csv
+    company = Company.new
+    
   end
 end
