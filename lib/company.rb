@@ -1,5 +1,4 @@
 require 'csv'
-
 class Company
   attr_reader :employees,
               :projects,
@@ -12,6 +11,9 @@ class Company
   end
 
   def load_employees(file_path)
-    data = CSV.open(file_path, headers: true, header_converters: :symbol)
+    data = CSV.read(file_path)
+    data_to_hash = data.map { |datum| datum << @employees }
   end
 end
+
+# header_converters: :symbol

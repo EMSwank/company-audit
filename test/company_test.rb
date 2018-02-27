@@ -18,6 +18,8 @@ class CompanyTest < Minitest::Test
 
   def test_it_reads_csv
     company = Company.new
-    
+    actual = company.load_employees("./data/good_timesheets.csv")
+
+    assert_instance_of Hash, actual
   end
 end
