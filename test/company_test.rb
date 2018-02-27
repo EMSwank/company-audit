@@ -20,6 +20,7 @@ class CompanyTest < Minitest::Test
     company = Company.new
     actual = company.load_employees("./data/good_timesheets.csv")
 
-    assert_instance_of Hash, actual
+    # assert_instance_of Hash, actual
+    assert_equal ({}), actual
   end
 end
