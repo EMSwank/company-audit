@@ -20,7 +20,10 @@ class CompanyTest < Minitest::Test
     company = Company.new
     actual = company.load_employees("./data/employees.csv")
 
-    # assert_instance_of Hash, actual
-    assert_equal ({}), actual
+    assert_equal ({:success => true, :error => nil}), actual
+
+    actual = company.load_employees("./data/bad_employees.csv")
+    require 'pry'; binding.pry
+    assert_equal ({:success => false, :error => 'bad file'}), actual
   end
 end

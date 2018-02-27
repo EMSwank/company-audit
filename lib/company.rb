@@ -11,12 +11,14 @@ class Company
   end
 
   def load_employees(file_path)
-    data = CSV.read(file_path)
-    @employees = data.map do |datum|
-      employee_hash = {datum[0].to_i => datum[1..4]}
-    end
-    @employees
+    @employees = CSV.read(file_path)
+     if CSV.read(file_path).include?
+       success_hash = {}
+       return success_hash = {:success => true, :error => nil}
+     else
+       return success_hash = {:success => false, :error => 'bad file'}
     # data = CSV.open(file_path)
+  end
     # @projects << data
   #   data = CSV.read(file_path)
     # CSV.foreach(file_path) do |row|
